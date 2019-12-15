@@ -12,22 +12,19 @@ const handleUserRouter = (req, res) => {
 
   // 获取博客列表
   if (method === 'POST' && req.path === '/api/user/login') {
-    // const {
-    //   username,
-    //   password
-    // } = req.body
-    const username = req.body.username
-    const password = req.body.password
-    console.log("1", username, password)
-
-
+    const {
+      username,
+      password
+    } = req.body
     const result = loginCheck(username, password)
+    return result.then(data => {
+      if (data.username) {
+        return new SuccessModel()
+      } else {
+        return new ErrorModel('登录失败')
+      }
+    })
 
-    if (result) {
-      return new SuccessModel()
-    } else {
-      return new ErrorModel('登录失败')
-    }
   }
 }
 
