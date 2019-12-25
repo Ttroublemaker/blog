@@ -18,7 +18,7 @@ const getPostData = (req) => {
     const promise = new Promise((resolve, reject) => {
         if (req.method !== 'POST') {
             resolve({})
-            retunrn
+            return
         }
         if (req.headers['content-type'] !== 'application/json') {
             resolve({})
@@ -42,8 +42,8 @@ const getPostData = (req) => {
 }
 
 const serverHandle = (req, res) => {
+    // 设置返回格式 JSON
     res.setHeader('Content-type', 'application/json')
-
     // 获取path
     const url = req.url
     req.path = url.split('?')[0]
@@ -83,6 +83,7 @@ const serverHandle = (req, res) => {
 
     // 处理postData
     getPostData(req).then(postData => {
+        console.log('postData', postData)
         req.body = postData
         // 处理blog路由
         const blogResult = handleBlogRouter(req, res)
