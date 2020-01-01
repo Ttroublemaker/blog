@@ -27,9 +27,6 @@ const handleBlogRouter = (req, res) => {
     const {
       author = '', keyword = ''
     } = req.query
-    // const listData = getList(author, keyword)
-    // return new SuccessModel(listData)
-    // promise对象改写
     const result = getList(author, keyword)
     return result.then(listData => {
       return new SuccessModel(listData)

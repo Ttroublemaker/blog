@@ -1,14 +1,24 @@
 const {
-  exec
+  exec,
+  escape
 } = require('../db/mysql')
+
+// 防止xss攻击
+const xss = require('xss')
 
 const getList = (author, keyword) => {
   let sql = `select * from blogs where 1=1 ` //where 1=1是为了拼接后面的语句块
+  author = xss(escape(author))
+  keyword = xss(escape(keyword))
   if (author) {
-    sql += `and author='${author}' `
+    // sql += `and author='${author}' `
+    sql += `and author=${author} `
+
   }
   if (keyword) {
-    sql += `and title like '%${keyword}%' `
+    // sql += `and title like '%${keyword}%' `
+    sql += `and title like %${keyword}% `
+
   }
   sql += `order by createtime desc;`
   // 返回的promise
@@ -16,20 +26,26 @@ const getList = (author, keyword) => {
 }
 
 const getDetail = (id) => {
-  const sql = `select * from blogs where id = '${id}'`
+  id = xss(escape(id))
+  // const sql = `select * from blogs where id = '${id}'`
+  const sql = `select * from blogs where id = ${id}`
   return exec(sql).then(rows => {
     return rows[0]
   })
 }
 
 const newBlog = (blogData = {}) => {
-  const {
-    title,
-    content,
-    author,
-  } = blogData
+  const title = xss(escape(blogData.title))
+  const content = xss(escape(blogData.content))
+  const author = xss(escape(blogData.author))
+  // const {
+  //   title,
+  //   content,
+  //   author,
+  // } = blogData
   const createtime = Date.now()
-  const sql = `insert into blogs (title,content,createtime,author) values ('${title}','${content}','${createtime}','${author}'); `
+  // const sql = `insert into blogs (title,content,createtime,author) values ('${title}','${content}','${createtime}','${author}'); `
+  const sql = `insert into blogs (title,content,createtime,author) values (${title},${content},${createtime},${author}); `
   return exec(sql).then(insertData => {
     return {
       id: insertData.insertId
@@ -39,11 +55,15 @@ const newBlog = (blogData = {}) => {
 }
 
 const updateBlog = (id, blogData = {}) => {
-  const {
-    title,
-    content
-  } = blogData
-  const sql = `update blogs set title = '${title}', content = '${content}' where id = ${id} `
+  // const {
+  //   title,
+  //   content
+  // } = blogData
+  id = xss(escape(id))
+  const title = xss(escape(blogData.title))
+  const content = xss(escape(blogData.content))
+  // const sql = `update blogs set title = '${title}', content = '${content}' where id = ${id} `
+  const sql = `update blogs set title = ${title}, content = ${content} where id = ${id} `
   return exec(sql).then(updateData => {
     if (updateData.affectedRows > 0) {
       return true
@@ -53,7 +73,11 @@ const updateBlog = (id, blogData = {}) => {
 }
 
 const delBlog = (id, author) => {
-  const sql = `delete from blogs where id = ${id} and author = '${author}' `
+  id = xss(escape(id))
+  author = xss(escape(author))
+  // const sql = `delete from blogs where id = ${id} and author = '${author}' `
+  const sql = `delete from blogs where id = ${id} and author = ${author} `
+
   return exec(sql).then(delData => {
     if (delData.affectedRows > 0) {
       return true

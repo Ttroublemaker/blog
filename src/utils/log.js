@@ -1,3 +1,4 @@
+// 日志记录
 const fs = require('fs')
 const path = require('path')
 
@@ -9,6 +10,7 @@ function writeLog(writeStream, log) {
 // 生成write stream的统一方法
 function createWriteStream(fileName) {
     const fullFileName = path.join(__dirname, '../', '../', 'logs', fileName)
+    // a是累加,w是覆盖
     const writeStream = fs.createWriteStream(fullFileName, {
         flags: 'a'
     })
