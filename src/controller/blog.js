@@ -3,24 +3,26 @@ const {
   escape
 } = require('../db/mysql')
 
-// 防止xss攻击
+// 防止xss攻击(js代码注入)
 const xss = require('xss')
 
 const getList = (author, keyword) => {
   let sql = `select * from blogs where 1=1 ` //where 1=1是为了拼接后面的语句块
-  author = xss(escape(author))
-  keyword = xss(escape(keyword))
+  // 注意author和keyword的位置
   if (author) {
+    author = xss(escape(author))
     // sql += `and author='${author}' `
     sql += `and author=${author} `
 
   }
   if (keyword) {
+    keyword = xss(escape(keyword))
     // sql += `and title like '%${keyword}%' `
     sql += `and title like %${keyword}% `
 
   }
   sql += `order by createtime desc;`
+  console.log(sql)
   // 返回的promise
   return exec(sql) //返回的是数组形式
 }

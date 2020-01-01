@@ -19,7 +19,7 @@ const login = (username, password) => {
 
   // 注意这里gemPassword和escape的位置,只有用escape才能去掉'',所以escape在后面
   password = xss(escape(password))
-  console.log('password', password)
+  // console.log('password', password)
   // 使用escape后需要去掉${}两侧的单引号**
   // const sql = `select username,realname from users where username = '${username}' and password = '${password}'`
   const sql = `select username,realname from users where username = ${username} and password = ${password}`
