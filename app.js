@@ -7,6 +7,8 @@ var logger = require('morgan'); // 日志功能
 // 引入路由
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const blogRouter = require('./routes/blog');
+const userRouter = require('./routes/user');
 
 // 触发app
 var app = express();
@@ -28,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public'))); //无用
 // 注册路由
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/blog', blogRouter)
+app.use('/api/user', userRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
