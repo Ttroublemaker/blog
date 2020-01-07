@@ -10,16 +10,13 @@ const {
 } = require('../controller/blog')
 
 // 引入数据处理类
-const {
-  SuccessModel,
-  ErrorModel
-} = require('../model/resModel')
+const { SuccessModel, ErrorModel } = require('../model/resModel')
 
 // 获取blog列表
 router.get('/list', function (req, res, next) {
   let {
     author = '',
-      keyword = ''
+    keyword = ''
   } = req.query
   const result = getList(author, keyword)
   return result.then(listData => {

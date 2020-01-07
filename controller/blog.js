@@ -1,7 +1,4 @@
-const {
-  exec,
-  escape
-} = require('../db/mysql')
+const { exec, escape } = require('../db/mysql')
 
 // 防止xss攻击(js代码注入)
 const xss = require('xss')
