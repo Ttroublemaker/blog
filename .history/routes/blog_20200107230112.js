@@ -33,7 +33,7 @@ router.get('/detail', loginCheck, (req, res, next) => {
 })
 
 // 新建博客
-router.post('/new', loginCheck, (req, res, next) => {
+router.post('/new', (req, res, next) => {
   req.body.author = req.session.username
   const blogData = req.body
   const result = newBlog(blogData)

@@ -33,8 +33,8 @@ router.get('/detail', loginCheck, (req, res, next) => {
 })
 
 // 新建博客
-router.post('/new', loginCheck, (req, res, next) => {
-  req.body.author = req.session.username
+router.post('/new', (req, res, next) => {
+  req.body.author = 'zhangsan' || req.session.username
   const blogData = req.body
   const result = newBlog(blogData)
   return result.then(data => {
@@ -45,6 +45,8 @@ router.post('/new', loginCheck, (req, res, next) => {
 // 更新博客
 router.post('/update', loginCheck, (req, res, next) => {
   const id = req.query.id
+  console.log('id----------', id)
+  return
   const result = updateBlog(id, req.body)
   return result.then(data => {
     if (data) {

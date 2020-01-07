@@ -15,7 +15,7 @@ const { SuccessModel, ErrorModel } = require('../model/resModel')
 const loginCheck = require('../middleware/loginCheck')
 
 // 获取blog列表
-router.get('/list', loginCheck, (req, res, next) => {
+router.get('/list', loginCheck, function (req, res, next) {
   let { author = '', keyword = '' } = req.query
   const result = getList(author, keyword)
   return result.then(listData => {
@@ -24,7 +24,7 @@ router.get('/list', loginCheck, (req, res, next) => {
 })
 
 // 获取文章详情
-router.get('/detail', loginCheck, (req, res, next) => {
+router.get('/detail', function (req, res, next) {
   const id = req.query.id
   const result = getDetail(id)
   return result.then(detaiData => {

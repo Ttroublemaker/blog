@@ -24,7 +24,7 @@ router.get('/list', loginCheck, (req, res, next) => {
 })
 
 // 获取文章详情
-router.get('/detail', loginCheck, (req, res, next) => {
+router.get('/detail', (req, res, next) => {
   const id = req.query.id
   const result = getDetail(id)
   return result.then(detaiData => {

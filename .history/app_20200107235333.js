@@ -22,18 +22,14 @@ var app = express();
 // app.set('view engine', 'jade');
 
 // app.use(logger('dev')); //使用日志,还能传入第二个参数
-const ENV = process.env.NODE_ENV//依据环境来生成日志
+const ENV = process.env.NODE_ENV
 if (ENV !== 'production') {
   // 开发环境/测试环境
   app.use(logger('dev'))
 } else {
   // 线上环境
-  const logFileName = path.join(__dirname, 'logs', 'access.log')
-  const writeStream = fs.createWriteStream(logFileName, {
-    flags: 'a'
-  })
   app.use(logger('combined', {
-    stream: writeStream
+    stream: process.stdout
   }))
 }
 

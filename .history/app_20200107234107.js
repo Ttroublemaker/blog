@@ -1,7 +1,6 @@
 var createError = require('http-errors'); //404 未命中处理
 var express = require('express');
 var path = require('path');
-const fs = require('fs')
 var cookieParser = require('cookie-parser'); //解析cookie
 var logger = require('morgan'); // 日志功能
 // 手动引入express-session,connect-redis
@@ -21,24 +20,10 @@ var app = express();
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
 
-// app.use(logger('dev')); //使用日志,还能传入第二个参数
-const ENV = process.env.NODE_ENV//依据环境来生成日志
-if (ENV !== 'production') {
-  // 开发环境/测试环境
-  app.use(logger('dev'))
-} else {
-  // 线上环境
-  const logFileName = path.join(__dirname, 'logs', 'access.log')
-  const writeStream = fs.createWriteStream(logFileName, {
-    flags: 'a'
-  })
-  app.use(logger('combined', {
-    stream: writeStream
-  }))
-}
-
-
-
+// app.use(logger('dev')); //使用日志
+app.use(logger('dev', {
+  stream: process.standout
+}))
 app.use(express.json()); //post 数据处理 (类型为application/json)
 //post 数据处理 (兼容其他数据格式)
 app.use(express.urlencoded({

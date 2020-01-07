@@ -64,7 +64,6 @@ const updateBlog = (id, blogData = {}) => {
 const delBlog = (id, author) => {
   id = xss(escape(id))
   author = xss(escape(author))
-  console.log({ id, author })
   // const sql = `delete from blogs where id = ${id} and author = '${author}' `
   const sql = `delete from blogs where id = ${id} and author = ${author} `
 
