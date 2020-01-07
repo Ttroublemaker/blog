@@ -4,7 +4,7 @@ const { login } = require('../controller/user')
 
 const { SuccessModel, ErrorModel } = require('../model/resModel')
 
-/* GET home page. */
+// 登录
 router.post('/login', function (req, res, next) {
   const { username, password } = req.body
   const result = login(username, password)

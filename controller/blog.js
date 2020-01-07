@@ -37,11 +37,6 @@ const newBlog = (blogData = {}) => {
   const title = xss(escape(blogData.title))
   const content = xss(escape(blogData.content))
   const author = xss(escape(blogData.author))
-  // const {
-  //   title,
-  //   content,
-  //   author,
-  // } = blogData
   const createtime = Date.now()
   // const sql = `insert into blogs (title,content,createtime,author) values ('${title}','${content}','${createtime}','${author}'); `
   const sql = `insert into blogs (title,content,createtime,author) values (${title},${content},${createtime},${author}); `
@@ -50,14 +45,9 @@ const newBlog = (blogData = {}) => {
       id: insertData.insertId
     }
   })
-
 }
 
 const updateBlog = (id, blogData = {}) => {
-  // const {
-  //   title,
-  //   content
-  // } = blogData
   id = xss(escape(id))
   const title = xss(escape(blogData.title))
   const content = xss(escape(blogData.content))
