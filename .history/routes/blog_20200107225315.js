@@ -26,9 +26,6 @@ router.get('/list', loginCheck, (req, res, next) => {
 // 获取文章详情
 router.get('/detail', loginCheck, (req, res, next) => {
   const id = req.query.id
-  if (!id) {
-    return Promise.resolve(res.json(new ErrorModel('请传入id')))
-  }
   const result = getDetail(id)
   return result.then(detaiData => {
     res.json(new SuccessModel(detaiData))
@@ -39,13 +36,6 @@ router.get('/detail', loginCheck, (req, res, next) => {
 router.post('/new', loginCheck, (req, res, next) => {
   req.body.author = req.session.username
   const blogData = req.body
-  const { content, title } = req.body
-  if (!content) {
-    return Promise.resolve(res.json(new ErrorModel('请传入content')))
-  }
-  if (!title) {
-    return Promise.resolve(res.json(new ErrorModel('请传入title')))
-  }
   const result = newBlog(blogData)
   return result.then(data => {
     res.json(new SuccessModel(data))
@@ -55,16 +45,6 @@ router.post('/new', loginCheck, (req, res, next) => {
 // 更新博客
 router.post('/update', loginCheck, (req, res, next) => {
   const id = req.query.id
-  const { content, title } = req.body
-  if (!id) {
-    return Promise.resolve(res.json(new ErrorModel('请传入id')))
-  }
-  if (!content) {
-    return Promise.resolve(res.json(new ErrorModel('请传入content')))
-  }
-  if (!title) {
-    return Promise.resolve(res.json(new ErrorModel('请传入title')))
-  }
   const result = updateBlog(id, req.body)
   return result.then(data => {
     if (data) {
@@ -78,9 +58,6 @@ router.post('/update', loginCheck, (req, res, next) => {
 // 删除博客
 router.post('/del', loginCheck, (req, res, next) => {
   const id = req.query.id
-  if (!id) {
-    return Promise.resolve(res.json(new ErrorModel('请传入id')))
-  }
   const author = req.session.username
   const result = delBlog(id, author)
   return result.then(data => {

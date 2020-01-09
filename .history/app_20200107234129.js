@@ -1,7 +1,6 @@
 var createError = require('http-errors'); //404 未命中处理
 var express = require('express');
 var path = require('path');
-const fs = require('fs')
 var cookieParser = require('cookie-parser'); //解析cookie
 var logger = require('morgan'); // 日志功能
 // 手动引入express-session,connect-redis
@@ -13,7 +12,6 @@ const RedisStore = require('connect-redis')(session)
 // var usersRouter = require('./routes/users');
 const blogRouter = require('./routes/blog');
 const userRouter = require('./routes/user');
-const fileRouter = require('./routes/upload');
 
 // 触发app
 var app = express();
@@ -22,24 +20,10 @@ var app = express();
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
 
-// app.use(logger('dev')); //使用日志,还能传入第二个参数
-const ENV = process.env.NODE_ENV//依据环境来生成日志
-if (ENV !== 'production') {
-  // 开发环境/测试环境
-  app.use(logger('dev'))
-} else {
-  // 线上环境
-  const logFileName = path.join(__dirname, 'logs', 'access.log')
-  const writeStream = fs.createWriteStream(logFileName, {
-    flags: 'a'
-  })
-  app.use(logger('combined', {
-    stream: writeStream
-  }))
-}
-
-
-
+// app.use(logger('dev')); //使用日志,传入第二个参数
+app.use(logger('dev', {
+  stream: process.standout
+}))
 app.use(express.json()); //post 数据处理 (类型为application/json)
 //post 数据处理 (兼容其他数据格式)
 app.use(express.urlencoded({
@@ -70,17 +54,6 @@ app.use(session({
 // app.use('/users', usersRouter);
 app.use('/api/blog', blogRouter)
 app.use('/api/user', userRouter)
-
-// 允许跨域访问
-app.all('*', function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-  res.header("X-Powered-By", ' 3.2.1')
-  res.header("Content-Type", "application/json;charset=utf-8");
-  next();
-});
-app.use('/file', fileRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
     "dev": "cross-env NODE_ENV=dev nodemon ./bin/www",
     "build": "cross-env NODE_ENV=production pm2 start ./bin/www"
   },
