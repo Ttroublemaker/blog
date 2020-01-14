@@ -1,0 +1,240 @@
+Tue, 14 Jan 2020 14:57:46 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 14:57:46 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 14:57:49 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 14:57:49 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 14:59:33 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 14:59:33 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+{ Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1'%' order by createtime desc' at line 1
+    at Query.Sequence._packetToError (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\Connection.js:91:28)
+    at Socket.<anonymous> (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\Connection.js:525:10)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    --------------------
+    at Protocol._enqueue (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\Connection.js:201:25)
+    at Promise (C:\Users\zy\Desktop\blog\db\mysql.js:13:9)
+    at new Promise (<anonymous>)
+    at exec (C:\Users\zy\Desktop\blog\db\mysql.js:12:19)
+    at getList (C:\Users\zy\Desktop\blog\controller\blog.js:17:10)
+    at router.get (C:\Users\zy\Desktop\blog\routes\blog.js:20:18)
+    at Layer.handle [as handle_request] (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\router\layer.js:95:5)
+    at next (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\router\route.js:112:3)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlMessage:
+   'You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'1\'%\' order by createtime desc\' at line 1',
+  sqlState: '42000',
+  index: 0,
+  sql:
+   'select * from blogs where 1=1 and title like \'%\'1\'%\' order by createtime desc;' }
+Tue, 14 Jan 2020 15:00:51 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:00:51 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:00:54 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:00:54 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:00:59 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:00:59 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:01:48 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:01:48 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:02:38 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:02:38 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:04:01 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:04:01 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:04:09 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:04:09 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:07:14 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:07:14 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:07:22 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:07:22 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:08:24 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:08:24 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+{ Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1'%' order by createtime desc' at line 1
+    at Query.Sequence._packetToError (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\Connection.js:91:28)
+    at Socket.<anonymous> (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\Connection.js:525:10)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    --------------------
+    at Protocol._enqueue (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (C:\Users\zy\Desktop\blog\node_modules\_mysql@2.17.1@mysql\lib\Connection.js:201:25)
+    at Promise (C:\Users\zy\Desktop\blog\db\mysql.js:13:9)
+    at new Promise (<anonymous>)
+    at exec (C:\Users\zy\Desktop\blog\db\mysql.js:12:19)
+    at getList (C:\Users\zy\Desktop\blog\controller\blog.js:16:10)
+    at router.get (C:\Users\zy\Desktop\blog\routes\blog.js:20:18)
+    at Layer.handle [as handle_request] (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\router\layer.js:95:5)
+    at next (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\router\route.js:112:3)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlMessage:
+   'You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'1\'%\' order by createtime desc\' at line 1',
+  sqlState: '42000',
+  index: 0,
+  sql:
+   'select * from blogs where 1=1 and title like \'%\'1\'%\' order by createtime desc;' }
+Tue, 14 Jan 2020 15:10:24 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:10:24 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:15:00 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:15:00 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:15:19 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:15:19 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:16:22 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:16:22 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:16:28 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:16:28 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:17:10 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:17:10 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:19:31 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:19:31 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:22:51 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:22:51 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:267:15)
+    at result.then.data (C:\Users\zy\Desktop\blog\routes\blog.js:41:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:267:15)
+    at result.then.data (C:\Users\zy\Desktop\blog\routes\blog.js:41:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Tue, 14 Jan 2020 15:26:23 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:26:23 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:26:30 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:26:30 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:267:15)
+    at result.then.data (C:\Users\zy\Desktop\blog\routes\blog.js:41:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:267:15)
+    at result.then.data (C:\Users\zy\Desktop\blog\routes\blog.js:41:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:267:15)
+    at result.then.data (C:\Users\zy\Desktop\blog\routes\blog.js:41:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:267:15)
+    at result.then.data (C:\Users\zy\Desktop\blog\routes\blog.js:41:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:267:15)
+    at result.then.data (C:\Users\zy\Desktop\blog\routes\blog.js:41:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Tue, 14 Jan 2020 15:29:31 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:29:31 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:29:37 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:29:37 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:267:15)
+    at result.then.data (C:\Users\zy\Desktop\blog\routes\blog.js:41:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Tue, 14 Jan 2020 15:30:28 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:30:28 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:31:22 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:31:22 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:31:50 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:31:50 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:32:11 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:32:11 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:32:33 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:32:33 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:32:39 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:32:39 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:32:42 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:32:42 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:32:45 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:32:45 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:267:15)
+    at result.then.data (C:\Users\zy\Desktop\blog\routes\blog.js:41:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Tue, 14 Jan 2020 15:33:54 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:33:54 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\zy\Desktop\blog\node_modules\_express@4.16.4@express\lib\response.js:267:15)
+    at result.then.data (C:\Users\zy\Desktop\blog\routes\blog.js:41:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Tue, 14 Jan 2020 15:34:26 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:34:26 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:34:29 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:34:29 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:34:35 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:34:35 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:35:47 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:35:47 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:35:53 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:35:53 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:38:55 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:38:55 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:39:00 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:39:00 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:42:02 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:42:02 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:42:10 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:42:10 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:45:12 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:45:12 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:48:33 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:48:33 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:51:54 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:51:54 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:51:59 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:51:59 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:54:46 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:54:46 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:54:50 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:54:50 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:57:52 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:57:52 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 15:57:58 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 15:57:58 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 16:01:20 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 16:01:20 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 16:01:26 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 16:01:26 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 16:06:17 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 16:06:17 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9
+Tue, 14 Jan 2020 16:06:25 GMT express-session deprecated undefined resave option; provide resave option at app.js:55:9
+Tue, 14 Jan 2020 16:06:25 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:55:9

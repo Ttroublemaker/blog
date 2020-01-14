@@ -15,16 +15,16 @@ const { SuccessModel, ErrorModel } = require('../model/resModel')
 const loginCheck = require('../middleware/loginCheck')
 
 // 获取blog列表
-router.get('/list', loginCheck, (req, res, next) => {
-  let { author = '', keyword = '' } = req.query
-  const result = getList(author, keyword)
+router.get('/list', (req, res, next) => {
+  let { keyword = '' } = req.query
+  const result = getList(keyword)
   return result.then(listData => {
     res.json(new SuccessModel(listData))
   })
 })
 
 // 获取文章详情
-router.get('/detail', loginCheck, (req, res, next) => {
+router.get('/detail', (req, res, next) => {
   const id = req.query.id
   const result = getDetail(id)
   return result.then(detaiData => {

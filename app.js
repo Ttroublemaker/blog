@@ -37,8 +37,6 @@ if (ENV !== 'production') {
   }))
 }
 
-
-
 app.use(express.json()); //post 数据处理 (类型为application/json)
 //post 数据处理 (兼容其他数据格式)
 app.use(express.urlencoded({

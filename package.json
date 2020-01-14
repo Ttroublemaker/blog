@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=dev nodemon ./bin/www",
-    "build": "cross-env NODE_ENV=production nodemon ./bin/www"
+    "build": "cross-env NODE_ENV=production pm2 start pm2.conf.json"
   },
   "dependencies": {
     "connect-redis": "^4.0.3",
