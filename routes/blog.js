@@ -6,6 +6,7 @@ const {
   getDetail,
   newBlog,
   updateBlog,
+  switchRecommend,
   delBlog
 } = require('../controller/blog')
 
@@ -16,10 +17,16 @@ const loginCheck = require('../middleware/loginCheck')
 
 // 获取blog列表
 router.get('/list', (req, res, next) => {
-  let { keyword = '' } = req.query
-  const result = getList(keyword)
+  let { keyword = '', recommend = '', page_size = 10, page_count = 1 } = req.query
+  const result = getList(keyword, recommend, page_size, page_count)
   return result.then(listData => {
-    res.json(new SuccessModel(listData))
+    let pagination = {
+      total: listData[0][0]['COUNT(*)'],
+      page_size: page_size,
+      page_count: page_count
+    }
+    let data = listData[1]
+    res.json(new SuccessModel({ pagination, data }))
   })
 })
 
@@ -39,12 +46,18 @@ router.get('/detail', (req, res, next) => {
 router.post('/new', loginCheck, (req, res, next) => {
   req.body.author = req.session.username
   const blogData = req.body
-  const { content, title } = req.body
+  const { content, title, recommend, classify } = req.body
   if (!content) {
     return Promise.resolve(res.json(new ErrorModel('请传入content')))
   }
   if (!title) {
     return Promise.resolve(res.json(new ErrorModel('请传入title')))
+  }
+  if (recommend == undefined || recommend == null) {
+    return Promise.resolve(res.json(new ErrorModel('请选择是否推荐')))
+  }
+  if (!classify) {
+    return Promise.resolve(res.json(new ErrorModel('请选择文章分类')))
   }
   const result = newBlog(blogData)
   return result.then(data => {
@@ -55,7 +68,7 @@ router.post('/new', loginCheck, (req, res, next) => {
 // 更新博客
 router.post('/update', loginCheck, (req, res, next) => {
   const id = req.query.id
-  const { content, title } = req.body
+  const { content, title, recommend, classify } = req.body
   if (!id) {
     return Promise.resolve(res.json(new ErrorModel('请传入id')))
   }
@@ -65,12 +78,38 @@ router.post('/update', loginCheck, (req, res, next) => {
   if (!title) {
     return Promise.resolve(res.json(new ErrorModel('请传入title')))
   }
+  if (recommend == undefined || recommend == null) {
+    return Promise.resolve(res.json(new ErrorModel('请选择是否推荐')))
+  }
+  if (!classify) {
+    return Promise.resolve(res.json(new ErrorModel('请选择文章分类')))
+  }
   const result = updateBlog(id, req.body)
   return result.then(data => {
     if (data) {
       res.json(new SuccessModel())
     } else {
       res.json(new ErrorModel('更新blog失败'))
+    }
+  })
+})
+
+// 切换文章推荐状态
+router.post('/switchRecommend', loginCheck, (req, res, next) => {
+  const { id, recommend } = req.body
+  if (!id) {
+    return Promise.resolve(res.json(new ErrorModel('请传入id')))
+  }
+  console.log(typeof recommend)
+  if (recommend == undefined || recommend == null) {
+    return Promise.resolve(res.json(new ErrorModel('请选择是否推荐')))
+  }
+  const result = switchRecommend(id, recommend)
+  return result.then(data => {
+    if (data) {
+      res.json(new SuccessModel())
+    } else {
+      res.json(new ErrorModel('更新失败'))
     }
   })
 })

@@ -11,6 +11,8 @@ class BaseModel {
     }
     if (message) {
       this.message = message
+    } else {
+      this.message = '操作成功'
     }
   }
 }

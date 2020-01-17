@@ -10,7 +10,8 @@ if (env === 'dev') {
     user: 'root',
     password: '1993zyhkcs',
     port: '3306',
-    database: 'my-blog'
+    database: 'my-blog',
+    multipleStatements: true
   }
   REDIS_CONFIG = {
     port: '6379',
@@ -24,7 +25,8 @@ if (env === 'production') {
     user: 'root',
     password: '1993zyhkcs',
     port: '3306',
-    database: 'my-blog'
+    database: 'my-blog',
+    multipleStatements: true
   }
   REDIS_CONFIG = {
     port: '6379',
