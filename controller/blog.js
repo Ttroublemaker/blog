@@ -4,7 +4,7 @@ const { crtTimeFtt } = require('../utils/tools')
 // 防止xss攻击(js代码注入)
 const xss = require('xss')
 
-const getList = (keyword, recommend, page_size = 10, page_count = 1) => {
+const getList = (keyword, recommend, classify, page_size = 10, currentPage = 1) => {
   // let sql = `select * from blogs where 1=1 ` //where 1=1是为了拼接后面的语句块
   // // 注意keyword的位置
   // if (keyword) {
@@ -23,8 +23,10 @@ const getList = (keyword, recommend, page_size = 10, page_count = 1) => {
   if (recommend) {
     sqlAdd += `and recommend = '${recommend}' `
   }
-  let sql = sqlc + sqlAdd + ';' + sqls + sqlAdd + `limit ${(page_count - 1) * page_size}, ${page_size}`;
-  console.log(sql)
+  if (classify && classify != 1) {
+    sqlAdd += `and classify = '${classify}' `
+  }
+  let sql = sqlc + sqlAdd + ';' + sqls + sqlAdd + `limit ${(currentPage - 1) * page_size}, ${page_size}`;
   // 返回的promise
   return exec(sql) //返回的是数组形式
 }
@@ -99,11 +101,19 @@ const delBlog = (id, author) => {
   })
 }
 
+const artClassify = () => {
+  const sql = 'select * from `art-classify`'
+  return exec(sql).then(classifyList => {
+    return classifyList
+  })
+}
+
 module.exports = {
   getList,
   getDetail,
   newBlog,
   updateBlog,
   switchRecommend,
-  delBlog
+  delBlog,
+  artClassify
 }

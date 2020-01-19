@@ -4,9 +4,7 @@ const { exec, escape } = require('../db/mysql')
 const xss = require('xss')
 
 // 密码加密
-const {
-  gemPassword
-} = require('../utils/cryp')
+const { gemPassword } = require('../utils/cryp')
 
 const login = (username, password) => {
   // 防止sql注入(escape对某些特殊代码进行处理)
@@ -25,6 +23,15 @@ const login = (username, password) => {
   })
 }
 
+const getUserInfo = (username) => {
+  const sql = `select realname,avatar,roles from users where username = '${username}'`
+  return exec(sql).then(rows => {
+    rows[0].roles = rows[0].roles.split('|')
+    return rows[0] || {}
+  })
+}
+
 module.exports = {
-  login
+  login,
+  getUserInfo
 }

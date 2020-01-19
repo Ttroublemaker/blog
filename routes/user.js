@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const { login } = require('../controller/user')
-
+const { login, getUserInfo } = require('../controller/user')
+const loginCheck = require('../middleware/loginCheck')
 const { SuccessModel, ErrorModel } = require('../model/resModel')
 
 // 登录
@@ -18,6 +18,22 @@ router.post('/login', function (req, res, next) {
     res.json(new ErrorModel('登陆失败'))
   })
 });
+
+// 获取用户信息
+router.get('/getInfo', loginCheck, function (req, res, next) {
+  const result = getUserInfo(req.session.username)
+  return result.then(data => {
+    res.json(new SuccessModel(data))
+  })
+})
+
+router.post('/loginOut', (req, res, next) => {
+  // req.session.destroy(function () {
+  //   res.clearCookie('connect.sid');
+  //   req.session = null;
+  // });
+  res.json(new SuccessModel())
+})
 
 // router.get('/login-test', (req, res, next) => {
 //   if (req.session.username) {

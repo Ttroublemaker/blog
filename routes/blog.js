@@ -7,7 +7,8 @@ const {
   newBlog,
   updateBlog,
   switchRecommend,
-  delBlog
+  delBlog,
+  artClassify
 } = require('../controller/blog')
 
 // 引入数据处理类
@@ -17,13 +18,13 @@ const loginCheck = require('../middleware/loginCheck')
 
 // 获取blog列表
 router.get('/list', (req, res, next) => {
-  let { keyword = '', recommend = '', page_size = 10, page_count = 1 } = req.query
-  const result = getList(keyword, recommend, page_size, page_count)
+  let { keyword = '', recommend = '', classify = 1, page_size = 10, currentPage = 1 } = req.query
+  const result = getList(keyword, recommend, classify, page_size, currentPage)
   return result.then(listData => {
     let pagination = {
       total: listData[0][0]['COUNT(*)'],
       page_size: page_size,
-      page_count: page_count
+      currentPage: currentPage
     }
     let data = listData[1]
     res.json(new SuccessModel({ pagination, data }))
@@ -37,8 +38,8 @@ router.get('/detail', (req, res, next) => {
     return Promise.resolve(res.json(new ErrorModel('请传入id')))
   }
   const result = getDetail(id)
-  return result.then(detaiData => {
-    res.json(new SuccessModel(detaiData))
+  return result.then(detailData => {
+    res.json(new SuccessModel(detailData))
   })
 })
 
@@ -128,6 +129,14 @@ router.post('/del', loginCheck, (req, res, next) => {
     } else {
       res.json(new ErrorModel('删除blog失败'))
     }
+  })
+})
+
+// 获取文章分类
+router.get('/artClassify', (req, res, next) => {
+  const result = artClassify()
+  return result.then(list => {
+    res.json(new SuccessModel(list))
   })
 })
 
