@@ -12,7 +12,8 @@ router.post('/login', function (req, res, next) {
     if (data.username) {
       req.session.username = data.username
       req.session.realname = data.realname
-      res.json(new SuccessModel())
+      req.session.save();  //保存一下修改后的Session
+      res.json(new SuccessModel('登录成功'))
       return
     }
     res.json(new ErrorModel('登陆失败'))
@@ -28,11 +29,9 @@ router.get('/getInfo', loginCheck, function (req, res, next) {
 })
 
 router.post('/loginOut', (req, res, next) => {
-  // req.session.destroy(function () {
-  //   res.clearCookie('connect.sid');
-  //   req.session = null;
-  // });
-  res.json(new SuccessModel())
+  res.clearCookie('connect.sid');
+  req.session = null;
+  res.json(new SuccessModel('登出成功'))
 })
 
 // router.get('/login-test', (req, res, next) => {

@@ -136,7 +136,11 @@ router.post('/del', loginCheck, (req, res, next) => {
 router.get('/artClassify', (req, res, next) => {
   const result = artClassify()
   return result.then(list => {
-    res.json(new SuccessModel(list))
+    let set = new Set()
+    list.forEach(item => {
+      set.add(item.classify)
+    })
+    res.json(new SuccessModel([...set]))
   })
 })
 

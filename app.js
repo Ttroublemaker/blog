@@ -47,6 +47,8 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public'))); //无用
 
+// 托管静态文件
+app.use('/upload', express.static(path.join(__dirname, 'upload')))
 
 const redisClient = require('./db/redis')
 const sessionStore = new RedisStore({

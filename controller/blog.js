@@ -23,7 +23,7 @@ const getList = (keyword, recommend, classify, page_size = 10, currentPage = 1) 
   if (recommend) {
     sqlAdd += `and recommend = '${recommend}' `
   }
-  if (classify && classify != 1) {
+  if (classify && classify != '全部') {
     sqlAdd += `and classify = '${classify}' `
   }
   let sql = sqlc + sqlAdd + ';' + sqls + sqlAdd + `limit ${(currentPage - 1) * page_size}, ${page_size}`;
@@ -46,9 +46,10 @@ const newBlog = (blogData = {}) => {
   const author = xss(escape(blogData.author))
   const recommend = xss(escape(blogData.recommend))
   const classify = xss(escape(blogData.classify))
-  const createtime = Date.now()
+  const subtitle = xss(escape(blogData.subtitle))
+  const createtime = crtTimeFtt() // 格式化后的当前时间
   // const sql = `insert into blogs (title,content,createtime,author) values ('${title}','${content}','${createtime}','${author}'); `
-  const sql = `insert into blogs (title,content,createtime,author,recommend, classify) values (${title},${content},${createtime},${author},${recommend},${classify}); `
+  const sql = `insert into blogs (title,content,createtime,author,recommend, classify, subtitle) values (${title},${content},'${createtime}',${author},${recommend},${classify}, ${subtitle}); `
   return exec(sql).then(insertData => {
     return {
       id: insertData.insertId
@@ -62,9 +63,10 @@ const updateBlog = (id, blogData = {}) => {
   const content = xss(escape(blogData.content))
   const recommend = xss(escape(blogData.recommend))
   const classify = xss(escape(blogData.classify))
+  const subtitle = xss(escape(blogData.subtitle))
   const updatetime = crtTimeFtt() // 格式化后的当前时间
   // const sql = `update blogs set title = '${title}', content = '${content}' where id = ${id} `
-  const sql = `update blogs set title = ${title}, content = ${content}, updatetime = '${updatetime}', recommend = ${recommend}, classify=${classify}  where id = ${id} `
+  const sql = `update blogs set title = ${title}, content = ${content}, updatetime = '${updatetime}', recommend = ${recommend}, classify=${classify}, subtitle=${subtitle}  where id = ${id} `
   return exec(sql).then(updateData => {
     if (updateData.affectedRows > 0) {
       return true
@@ -102,7 +104,7 @@ const delBlog = (id, author) => {
 }
 
 const artClassify = () => {
-  const sql = 'select * from `art-classify`'
+  const sql = 'select classify from blogs'
   return exec(sql).then(classifyList => {
     return classifyList
   })
