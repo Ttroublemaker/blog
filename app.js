@@ -48,7 +48,7 @@ app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public'))); //无用
 
 // 托管静态文件
-app.use('/upload', express.static(path.join(__dirname, 'upload')))
+app.use('/api/upload', express.static(path.join(__dirname, 'upload')))
 
 const redisClient = require('./db/redis')
 const sessionStore = new RedisStore({
@@ -80,7 +80,7 @@ app.all('*', function (req, res, next) {
   res.header("Content-Type", "application/json;charset=utf-8");
   next();
 });
-app.use('/file', fileRouter);
+app.use('/api/file', fileRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
