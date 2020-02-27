@@ -46,10 +46,11 @@ const newBlog = (blogData = {}) => {
   const author = xss(escape(blogData.author))
   const recommend = xss(escape(blogData.recommend))
   const classify = xss(escape(blogData.classify))
+  const recImg = xss(escape(blogData.recImg))
   const subtitle = xss(escape(blogData.subtitle))
   const createtime = crtTimeFtt() // 格式化后的当前时间
   // const sql = `insert into blogs (title,content,createtime,author) values ('${title}','${content}','${createtime}','${author}'); `
-  const sql = `insert into blogs (title,content,createtime,author,recommend, classify, subtitle) values (${title},${content},'${createtime}',${author},${recommend},${classify}, ${subtitle}); `
+  const sql = `insert into blogs (title,content,createtime,author,recommend, classify, recImg, subtitle) values (${title},${content},'${createtime}',${author},${recommend},${classify},${recImg}, ${subtitle}); `
   return exec(sql).then(insertData => {
     return {
       id: insertData.insertId
@@ -63,10 +64,11 @@ const updateBlog = (id, blogData = {}) => {
   const content = xss(escape(blogData.content))
   const recommend = xss(escape(blogData.recommend))
   const classify = xss(escape(blogData.classify))
+  const recImg = xss(escape(blogData.recImg))
   const subtitle = xss(escape(blogData.subtitle))
   const updatetime = crtTimeFtt() // 格式化后的当前时间
   // const sql = `update blogs set title = '${title}', content = '${content}' where id = ${id} `
-  const sql = `update blogs set title = ${title}, content = ${content}, updatetime = '${updatetime}', recommend = ${recommend}, classify=${classify}, subtitle=${subtitle}  where id = ${id} `
+  const sql = `update blogs set title = ${title}, content = ${content}, updatetime = '${updatetime}', recommend = ${recommend}, classify=${classify}, recImg=${recImg},subtitle=${subtitle}  where id = ${id} `
   return exec(sql).then(updateData => {
     if (updateData.affectedRows > 0) {
       return true
